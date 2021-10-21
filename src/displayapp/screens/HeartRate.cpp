@@ -84,6 +84,9 @@ void HeartRate::Refresh() {
       lv_label_set_text(label_hr, "000");
       break;
     default:
+      if(heartRateController.HeartRate() > 180 || heartRateController.HeartRate() < 35){
+        lv_label_set_text(label_hr, "Dead"); 
+      }
       lv_label_set_text_fmt(label_hr, "%03d", heartRateController.HeartRate());
   }
 

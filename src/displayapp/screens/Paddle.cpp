@@ -24,7 +24,7 @@ Paddle::Paddle(Pinetime::Applications::DisplayApp* app, Pinetime::Components::Li
   lv_obj_set_size(paddle, 4, 60);
 
   ball = lv_obj_create(lv_scr_act(), nullptr);
-  lv_obj_set_style_local_bg_color(ball, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_WHITE);
+  lv_obj_set_style_local_bg_color(ball, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_RED);
   lv_obj_set_style_local_radius(ball, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_RADIUS_CIRCLE);
   lv_obj_set_size(ball, ballSize, ballSize);
 
@@ -37,8 +37,8 @@ Paddle::~Paddle() {
 }
 
 void Paddle::Refresh() {
-  ballX += dx;
-  ballY += dy;
+  ballX += dx*1.2;
+  ballY += dy*1.2;
 
   lv_obj_set_pos(ball, ballX, ballY);
 
